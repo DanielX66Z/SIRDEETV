@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-15-2019 03:20:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.ues.dominio.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estadoUsuario" class="sv.ues.dominio.EstadoUsuario" fetch="select">
+            <column name="id_estado_usuario" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="tipoUsuario" class="sv.ues.dominio.TipoUsuario" fetch="select">
+            <column name="id_tipo_usuario" precision="10" scale="0" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="25" />
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="13" />
+        </property>
+        <property name="fechaModificacion" type="date">
+            <column name="fecha_modificacion" length="13" />
+        </property>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" precision="10" scale="0" />
+            </key>
+            <one-to-many class="sv.ues.dominio.Persona" />
+        </set>
+        <set name="usuarioRols" table="usuario_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" precision="10" scale="0" />
+            </key>
+            <one-to-many class="sv.ues.dominio.UsuarioRol" />
+        </set>
+    </class>
+</hibernate-mapping>

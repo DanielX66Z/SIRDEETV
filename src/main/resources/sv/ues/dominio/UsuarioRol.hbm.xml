@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-15-2019 03:20:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.ues.dominio.UsuarioRol" table="usuario_rol" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rol" class="sv.ues.dominio.Rol" fetch="select">
+            <column name="id_rol" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="usuario" class="sv.ues.dominio.Usuario" fetch="select">
+            <column name="id_usuario" precision="10" scale="0" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
