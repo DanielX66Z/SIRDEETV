@@ -8,8 +8,11 @@ package sv.ues.dao;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+<<<<<<< HEAD
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
+=======
+>>>>>>> master
 import javax.persistence.criteria.Root;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -48,7 +51,11 @@ public class RolesDao {
 
     private void manejaExcepcion(HibernateException he) throws HibernateException {
         tx.rollback();
+<<<<<<< HEAD
         throw new HibernateException("Ocurrió un error en la capa DAO", he);
+=======
+        throw new HibernateException("OcurriÃ³ un error en la capa DAO", he);
+>>>>>>> master
     }
 
     public void registrar(Rol rol) throws Exception {
@@ -88,6 +95,7 @@ public class RolesDao {
         try
         {
             iniciaOperacion();
+<<<<<<< HEAD
             /*CriteriaBuilder builder = sesion.getCriteriaBuilder();
             CriteriaQuery<Rol> query = builder.createQuery(Rol.class);
             Root<Rol> root = query.from(Rol.class);
@@ -106,6 +114,19 @@ public class RolesDao {
             
             if(roles.size() > 0)
             {
+=======
+            CriteriaBuilder builder = sesion.getCriteriaBuilder();
+            CriteriaQuery<Rol> query = builder.createQuery(Rol.class);
+            Root<Rol> root = query.from(Rol.class);
+            query.select(root).where(builder.equal(root.get("nombre"), nombre));
+
+            Query<Rol> q=sesion.createQuery(query);
+            Rol rol= q.getSingleResult();
+
+            if(rol!=null)
+            {
+                //System.out.println("EXISTE");
+>>>>>>> master
                 return true;
             }
             else
@@ -123,6 +144,7 @@ public class RolesDao {
     
     public boolean validar_rol_modificar(String nombre,long id) throws Exception 
     {
+<<<<<<< HEAD
         try
         {
             iniciaOperacion();
@@ -151,6 +173,22 @@ public class RolesDao {
             List<Rol> roles = sesion.createQuery(critQ.select(root)).getResultList();
 
             if(roles.size() > 0)
+=======
+        //private List<Rol> lsroles=new ArrayList();
+        try
+        {
+            iniciaOperacion();
+            CriteriaBuilder builder = sesion.getCriteriaBuilder();
+            CriteriaQuery<Rol> query = builder.createQuery(Rol.class);
+            Root<Rol> root = query.from(Rol.class);
+            //query.select(root).where(builder.equal(root.get("nombre"), nombre));
+            query.select(root).where(builder.equal(root.get("nombre"), nombre),builder.notEqual(root.get("id"), id));
+
+            Query<Rol> q=sesion.createQuery(query);
+            List<Rol> lsroles = q.list();
+
+            if(lsroles.size() > 0)
+>>>>>>> master
             {
                 System.out.println("EXISTE");
                 return true;
@@ -201,4 +239,8 @@ public class RolesDao {
     
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
