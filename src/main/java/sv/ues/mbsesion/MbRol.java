@@ -58,6 +58,7 @@ public class MbRol  implements Serializable{
             PrimeFaces.current().ajax().update("rolesResgistrados");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Informacion","Rol modificado exitosamente"));
         }
+
         
         /*try
         {
@@ -118,6 +119,7 @@ public class MbRol  implements Serializable{
         {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error","Al modificar datos")); 
         }*/
+
     }
     
     public void setSelected(Rol roles)
@@ -229,7 +231,11 @@ public class MbRol  implements Serializable{
                     else
                     {
                         RolesDao rolesDao=new RolesDao();
+
+                        if(rolesDao.validar_rol_modificar(selectedRol.getNombre().trim().toLowerCase(),selectedRol.getId()) == true)
+
                         if(rolesDao.validar_rol_modificar(selectedRol.getNombre().trim(),selectedRol.getId()) == true)
+
                         {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El rol ya existe")); 
                             return false;
