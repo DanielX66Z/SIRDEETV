@@ -41,10 +41,46 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="sirdeetv" match-schema="public"/>
-  <table-filter match-name="estado_usuario"/>
-  <table-filter match-name="persona"/>
+  <table-filter match-name="vector"/>
+  <table-filter match-name="menu_permiso"/>
+  <table-filter match-name="actividad"/>
+  <table-filter match-name="encuesta"/>
+  <table-filter match-name="tipo_prueba"/>
+  <table-filter match-name="pregunta"/>
+  <table-filter match-name="rol_permiso"/>
+  <table-filter match-name="encuestador"/>
+  <table-filter match-name="ubicacion"/>
+  <table-filter match-name="permiso"/>
+  <table-filter match-name="catalogo_anima"/>
+  <table-filter match-name="cargo"/>
+  <table-filter match-name="tipo_respuesta"/>
+  <table-filter match-name="tratamiento"/>
+  <table-filter match-name="laboratorio"/>
+  <table-filter match-name="investigacion"/>
+  <table-filter match-name="perfil_inv"/>
   <table-filter match-name="usuario_rol"/>
+  <table-filter match-name="detalle"/>
+  <table-filter match-name="preservante"/>
+  <table-filter match-name="municipio"/>
+  <table-filter match-name="mantenimiento"/>
+  <table-filter match-name="lote"/>
+  <table-filter match-name="analisis_lab"/>
+  <table-filter match-name="inv_vector"/>
+  <table-filter match-name="encuestado"/>
+  <table-filter match-name="animal"/>
+  <table-filter match-name="bitacora_campo"/>
+  <table-filter match-name="tipo_muestra"/>
+  <table-filter match-name="muestra"/>
+  <table-filter match-name="documento"/>
+  <table-filter match-name="persona"/>
+  <table-filter match-name="investigacion_investigador"/>
+  <table-filter match-name="cacerio"/>
   <table-filter match-name="usuario"/>
+  <table-filter match-name="colonia_canton"/>
   <table-filter match-name="rol"/>
-  <table-filter match-name="tipo_usuario"/>
+  <table-filter match-name="bitacora_lab"/>
+  <table-filter match-name="menu"/>
+  <table-filter match-name="investigador"/>
+  <table-filter match-name="departamento"/>
+  <table-filter match-name="respuesta"/>
 </hibernate-reverse-engineering>

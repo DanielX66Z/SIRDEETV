@@ -1,5 +1,5 @@
 package sv.ues.dominio;
-// Generated 06-15-2019 03:20:57 AM by Hibernate Tools 4.3.1
+// Generated 08-22-2019 08:34:29 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,38 +11,44 @@ import java.util.Set;
 public class Rol  implements java.io.Serializable {
 
 
-     private long id;
-     private String nombre;
+     private int idRol;
+     private String nomRol;
      private String descripcion;
-     private Set usuarioRols = new HashSet(0);
+     private boolean estadoRol;
+     private Set permisos = new HashSet(0);
+     private Set usuarios = new HashSet(0);
 
     public Rol() {
     }
 
 	
-    public Rol(long id) {
-        this.id = id;
+    public Rol(int idRol, String nomRol, boolean estadoRol) {
+        this.idRol = idRol;
+        this.nomRol = nomRol;
+        this.estadoRol = estadoRol;
     }
-    public Rol(long id, String nombre, String descripcion, Set usuarioRols) {
-       this.id = id;
-       this.nombre = nombre;
+    public Rol(int idRol, String nomRol, String descripcion, boolean estadoRol, Set permisos, Set usuarios) {
+       this.idRol = idRol;
+       this.nomRol = nomRol;
        this.descripcion = descripcion;
-       this.usuarioRols = usuarioRols;
+       this.estadoRol = estadoRol;
+       this.permisos = permisos;
+       this.usuarios = usuarios;
     }
    
-    public long getId() {
-        return this.id;
+    public int getIdRol() {
+        return this.idRol;
     }
     
-    public void setId(long id) {
-        this.id = id;
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
     }
-    public String getNombre() {
-        return this.nombre;
+    public String getNomRol() {
+        return this.nomRol;
     }
     
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNomRol(String nomRol) {
+        this.nomRol = nomRol;
     }
     public String getDescripcion() {
         return this.descripcion;
@@ -51,12 +57,26 @@ public class Rol  implements java.io.Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public Set getUsuarioRols() {
-        return this.usuarioRols;
+    public boolean isEstadoRol() {
+        return this.estadoRol;
     }
     
-    public void setUsuarioRols(Set usuarioRols) {
-        this.usuarioRols = usuarioRols;
+    public void setEstadoRol(boolean estadoRol) {
+        this.estadoRol = estadoRol;
+    }
+    public Set getPermisos() {
+        return this.permisos;
+    }
+    
+    public void setPermisos(Set permisos) {
+        this.permisos = permisos;
+    }
+    public Set getUsuarios() {
+        return this.usuarios;
+    }
+    
+    public void setUsuarios(Set usuarios) {
+        this.usuarios = usuarios;
     }
 
 

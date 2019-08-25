@@ -1,5 +1,5 @@
 package sv.ues.dominio;
-// Generated 06-15-2019 03:20:57 AM by Hibernate Tools 4.3.1
+// Generated 08-22-2019 08:34:29 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,39 +9,56 @@ package sv.ues.dominio;
 public class Persona  implements java.io.Serializable {
 
 
-     private long id;
+     private int idPersona;
+     private Encuestado encuestado;
+     private Encuestador encuestador;
      private Usuario usuario;
-     private String primerNombre;
-     private String segundoNombre;
-     private String primerApellido;
-     private String segundoApellido;
-     private String telefono;
-     private String correo;
+     private String nomPersona;
+     private String apellPersona;
+     private String correoPersona;
+     private String telefonoPersona;
+     private Integer edadPersona;
 
     public Persona() {
     }
 
 	
-    public Persona(long id) {
-        this.id = id;
+    public Persona(int idPersona, String nomPersona) {
+        this.idPersona = idPersona;
+        this.nomPersona = nomPersona;
     }
-    public Persona(long id, Usuario usuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String telefono, String correo) {
-       this.id = id;
+    public Persona(int idPersona, Encuestado encuestado, Encuestador encuestador, Usuario usuario, String nomPersona, String apellPersona, String correoPersona, String telefonoPersona, Integer edadPersona) {
+       this.idPersona = idPersona;
+       this.encuestado = encuestado;
+       this.encuestador = encuestador;
        this.usuario = usuario;
-       this.primerNombre = primerNombre;
-       this.segundoNombre = segundoNombre;
-       this.primerApellido = primerApellido;
-       this.segundoApellido = segundoApellido;
-       this.telefono = telefono;
-       this.correo = correo;
+       this.nomPersona = nomPersona;
+       this.apellPersona = apellPersona;
+       this.correoPersona = correoPersona;
+       this.telefonoPersona = telefonoPersona;
+       this.edadPersona = edadPersona;
     }
    
-    public long getId() {
-        return this.id;
+    public int getIdPersona() {
+        return this.idPersona;
     }
     
-    public void setId(long id) {
-        this.id = id;
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+    public Encuestado getEncuestado() {
+        return this.encuestado;
+    }
+    
+    public void setEncuestado(Encuestado encuestado) {
+        this.encuestado = encuestado;
+    }
+    public Encuestador getEncuestador() {
+        return this.encuestador;
+    }
+    
+    public void setEncuestador(Encuestador encuestador) {
+        this.encuestador = encuestador;
     }
     public Usuario getUsuario() {
         return this.usuario;
@@ -50,47 +67,40 @@ public class Persona  implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public String getPrimerNombre() {
-        return this.primerNombre;
+    public String getNomPersona() {
+        return this.nomPersona;
     }
     
-    public void setPrimerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
+    public void setNomPersona(String nomPersona) {
+        this.nomPersona = nomPersona;
     }
-    public String getSegundoNombre() {
-        return this.segundoNombre;
-    }
-    
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-    }
-    public String getPrimerApellido() {
-        return this.primerApellido;
+    public String getApellPersona() {
+        return this.apellPersona;
     }
     
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
+    public void setApellPersona(String apellPersona) {
+        this.apellPersona = apellPersona;
     }
-    public String getSegundoApellido() {
-        return this.segundoApellido;
-    }
-    
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-    public String getTelefono() {
-        return this.telefono;
+    public String getCorreoPersona() {
+        return this.correoPersona;
     }
     
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setCorreoPersona(String correoPersona) {
+        this.correoPersona = correoPersona;
     }
-    public String getCorreo() {
-        return this.correo;
+    public String getTelefonoPersona() {
+        return this.telefonoPersona;
     }
     
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setTelefonoPersona(String telefonoPersona) {
+        this.telefonoPersona = telefonoPersona;
+    }
+    public Integer getEdadPersona() {
+        return this.edadPersona;
+    }
+    
+    public void setEdadPersona(Integer edadPersona) {
+        this.edadPersona = edadPersona;
     }
 
 

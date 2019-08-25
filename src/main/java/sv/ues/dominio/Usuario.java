@@ -1,8 +1,7 @@
 package sv.ues.dominio;
-// Generated 06-15-2019 03:20:57 AM by Hibernate Tools 4.3.1
+// Generated 08-22-2019 08:34:29 PM by Hibernate Tools 4.3.1
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,83 +11,81 @@ import java.util.Set;
 public class Usuario  implements java.io.Serializable {
 
 
-     private long id;
-     private EstadoUsuario estadoUsuario;
-     private TipoUsuario tipoUsuario;
-     private String nombre;
-     private String contrasena;
-     private Date fechaCreacion;
-     private Date fechaModificacion;
+     private int idUsuario;
+     private Cargo cargo;
+     private String nomUsuario;
+     private String email;
+     private String clave;
+     private boolean activo;
      private Set personas = new HashSet(0);
-     private Set usuarioRols = new HashSet(0);
+     private Set laboratorios = new HashSet(0);
+     private Set rols = new HashSet(0);
 
     public Usuario() {
     }
 
 	
-    public Usuario(long id) {
-        this.id = id;
+    public Usuario(int idUsuario, Cargo cargo, String nomUsuario, String email, String clave, boolean activo) {
+        this.idUsuario = idUsuario;
+        this.cargo = cargo;
+        this.nomUsuario = nomUsuario;
+        this.email = email;
+        this.clave = clave;
+        this.activo = activo;
     }
-    public Usuario(long id, EstadoUsuario estadoUsuario, TipoUsuario tipoUsuario, String nombre, String contrasena, Date fechaCreacion, Date fechaModificacion, Set personas, Set usuarioRols) {
-       this.id = id;
-       this.estadoUsuario = estadoUsuario;
-       this.tipoUsuario = tipoUsuario;
-       this.nombre = nombre;
-       this.contrasena = contrasena;
-       this.fechaCreacion = fechaCreacion;
-       this.fechaModificacion = fechaModificacion;
+    public Usuario(int idUsuario, Cargo cargo, String nomUsuario, String email, String clave, boolean activo, Set personas, Set laboratorios, Set rols) {
+       this.idUsuario = idUsuario;
+       this.cargo = cargo;
+       this.nomUsuario = nomUsuario;
+       this.email = email;
+       this.clave = clave;
+       this.activo = activo;
        this.personas = personas;
-       this.usuarioRols = usuarioRols;
+       this.laboratorios = laboratorios;
+       this.rols = rols;
     }
    
-    public long getId() {
-        return this.id;
+    public int getIdUsuario() {
+        return this.idUsuario;
     }
     
-    public void setId(long id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
-    public EstadoUsuario getEstadoUsuario() {
-        return this.estadoUsuario;
-    }
-    
-    public void setEstadoUsuario(EstadoUsuario estadoUsuario) {
-        this.estadoUsuario = estadoUsuario;
-    }
-    public TipoUsuario getTipoUsuario() {
-        return this.tipoUsuario;
+    public Cargo getCargo() {
+        return this.cargo;
     }
     
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
-    public String getNombre() {
-        return this.nombre;
-    }
-    
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public String getContrasena() {
-        return this.contrasena;
+    public String getNomUsuario() {
+        return this.nomUsuario;
     }
     
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setNomUsuario(String nomUsuario) {
+        this.nomUsuario = nomUsuario;
     }
-    public Date getFechaCreacion() {
-        return this.fechaCreacion;
-    }
-    
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-    public Date getFechaModificacion() {
-        return this.fechaModificacion;
+    public String getEmail() {
+        return this.email;
     }
     
-    public void setFechaModificacion(Date fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getClave() {
+        return this.clave;
+    }
+    
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    public boolean isActivo() {
+        return this.activo;
+    }
+    
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
     public Set getPersonas() {
         return this.personas;
@@ -97,12 +94,19 @@ public class Usuario  implements java.io.Serializable {
     public void setPersonas(Set personas) {
         this.personas = personas;
     }
-    public Set getUsuarioRols() {
-        return this.usuarioRols;
+    public Set getLaboratorios() {
+        return this.laboratorios;
     }
     
-    public void setUsuarioRols(Set usuarioRols) {
-        this.usuarioRols = usuarioRols;
+    public void setLaboratorios(Set laboratorios) {
+        this.laboratorios = laboratorios;
+    }
+    public Set getRols() {
+        return this.rols;
+    }
+    
+    public void setRols(Set rols) {
+        this.rols = rols;
     }
 
 

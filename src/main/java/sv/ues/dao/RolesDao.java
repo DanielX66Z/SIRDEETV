@@ -89,7 +89,7 @@ public class RolesDao {
             CriteriaBuilder builder = sesion.getCriteriaBuilder();
             CriteriaQuery<Rol> query = builder.createQuery(Rol.class);
             Root<Rol> root = query.from(Rol.class);
-            query.select(root).where(builder.equal(root.get("nombre"), nombre));
+            query.select(root).where(builder.equal(root.get("nomRol"), nombre));
 
             Query<Rol> q=sesion.createQuery(query);
             Rol rol= q.getSingleResult();
@@ -122,7 +122,7 @@ public class RolesDao {
             CriteriaQuery<Rol> query = builder.createQuery(Rol.class);
             Root<Rol> root = query.from(Rol.class);
             //query.select(root).where(builder.equal(root.get("nombre"), nombre));
-            query.select(root).where(builder.equal(root.get("nombre"), nombre),builder.notEqual(root.get("id"), id));
+            query.select(root).where(builder.equal(root.get("nomRol"), nombre),builder.notEqual(root.get("idRol"), id));
 
             Query<Rol> q=sesion.createQuery(query);
             List<Rol> lsroles = q.list();

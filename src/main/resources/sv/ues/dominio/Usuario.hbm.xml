@@ -1,42 +1,47 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 06-15-2019 03:20:58 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 08-22-2019 08:34:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="sv.ues.dominio.Usuario" table="usuario" schema="public" optimistic-lock="version">
-        <id name="id" type="long">
-            <column name="id" precision="10" scale="0" />
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="estadoUsuario" class="sv.ues.dominio.EstadoUsuario" fetch="select">
-            <column name="id_estado_usuario" precision="10" scale="0" />
+        <many-to-one name="cargo" class="sv.ues.dominio.Cargo" fetch="select">
+            <column name="id_cargo" not-null="true" />
         </many-to-one>
-        <many-to-one name="tipoUsuario" class="sv.ues.dominio.TipoUsuario" fetch="select">
-            <column name="id_tipo_usuario" precision="10" scale="0" />
-        </many-to-one>
-        <property name="nombre" type="string">
-            <column name="nombre" length="25" />
+        <property name="nomUsuario" type="string">
+            <column name="nom_usuario" length="150" not-null="true" />
         </property>
-        <property name="contrasena" type="string">
-            <column name="contrasena" length="25" />
+        <property name="email" type="string">
+            <column name="email" length="200" not-null="true" />
         </property>
-        <property name="fechaCreacion" type="date">
-            <column name="fecha_creacion" length="13" />
+        <property name="clave" type="string">
+            <column name="clave" length="200" not-null="true" />
         </property>
-        <property name="fechaModificacion" type="date">
-            <column name="fecha_modificacion" length="13" />
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
         </property>
         <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_usuario" precision="10" scale="0" />
+                <column name="id_usuario" />
             </key>
             <one-to-many class="sv.ues.dominio.Persona" />
         </set>
-        <set name="usuarioRols" table="usuario_rol" inverse="true" lazy="true" fetch="select">
+        <set name="laboratorios" table="laboratorio" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_usuario" precision="10" scale="0" />
+                <column name="id_usuario" />
             </key>
-            <one-to-many class="sv.ues.dominio.UsuarioRol" />
+            <one-to-many class="sv.ues.dominio.Laboratorio" />
+        </set>
+        <set name="rols" table="usuario_rol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <many-to-many entity-name="sv.ues.dominio.Rol">
+                <column name="id_rol" not-null="true" />
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>

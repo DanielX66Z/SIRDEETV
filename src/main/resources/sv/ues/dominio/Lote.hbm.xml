@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-22-2019 08:34:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.ues.dominio.Lote" table="lote" schema="public" optimistic-lock="version">
+        <id name="idLote" type="int">
+            <column name="id_lote" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bitacoraLab" class="sv.ues.dominio.BitacoraLab" fetch="select">
+            <column name="cod_bit_lab" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lote" class="sv.ues.dominio.Lote" fetch="select">
+            <column name="lot_id_lote" />
+        </many-to-one>
+        <many-to-one name="preservante" class="sv.ues.dominio.Preservante" fetch="select">
+            <column name="id_preservante" not-null="true" />
+        </many-to-one>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="13" />
+        </property>
+        <property name="fechaToma" type="date">
+            <column name="fecha_toma" length="13" />
+        </property>
+        <property name="estatus" type="java.lang.Boolean">
+            <column name="estatus" />
+        </property>
+        <set name="mantenimientos" table="mantenimiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lote" not-null="true" />
+            </key>
+            <one-to-many class="sv.ues.dominio.Mantenimiento" />
+        </set>
+        <set name="lotes" table="lote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="lot_id_lote" />
+            </key>
+            <one-to-many class="sv.ues.dominio.Lote" />
+        </set>
+        <set name="muestras" table="muestra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lote" not-null="true" />
+            </key>
+            <one-to-many class="sv.ues.dominio.Muestra" />
+        </set>
+    </class>
+</hibernate-mapping>

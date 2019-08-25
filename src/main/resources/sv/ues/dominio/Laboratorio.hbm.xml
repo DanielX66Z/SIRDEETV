@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-22-2019 08:34:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.ues.dominio.Laboratorio" table="laboratorio" schema="public" optimistic-lock="version">
+        <id name="codLaboratorio" type="int">
+            <column name="cod_laboratorio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="sv.ues.dominio.Usuario" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="nomLab" type="string">
+            <column name="nom_lab" length="200" not-null="true" />
+        </property>
+        <property name="alias" type="string">
+            <column name="alias" length="200" />
+        </property>
+        <set name="investigacions" table="investigacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cod_laboratorio" not-null="true" />
+            </key>
+            <one-to-many class="sv.ues.dominio.Investigacion" />
+        </set>
+    </class>
+</hibernate-mapping>

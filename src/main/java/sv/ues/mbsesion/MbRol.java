@@ -59,7 +59,7 @@ public class MbRol  implements Serializable{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Informacion","Rol modificado exitosamente"));
         }
 
-        
+        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar la descripcion"));
         /*try
         {
             if(selectedRol!=null)
@@ -144,9 +144,9 @@ public class MbRol  implements Serializable{
     {    
         /*EN ESTAS VALIDACIONES SOLO PONER EL TRIM NO FUNCIONA
         ASI QUE SE TRABAJA CON LA LONGITUD*/
-        if(roles.getNombre().trim().length() == 0 || roles.getDescripcion().trim().length() == 0)
+        if(roles.getNomRol().trim().length() == 0 || roles.getDescripcion().trim().length() == 0)
         {
-            if(roles.getNombre().trim().length() == 0)//VALIDAR QUE SE DIGITE EL NOMBRE DEL ROL
+            if(roles.getNomRol().trim().length() == 0)//VALIDAR QUE SE DIGITE EL NOMBRE DEL ROL
             {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar el nombre"));
             }
@@ -157,13 +157,13 @@ public class MbRol  implements Serializable{
         }
         else
         {
-            if(roles.getNombre().trim().length() < 10 || roles.getNombre().trim().length() > 25 || roles.getDescripcion().trim().length() < 10 || roles.getDescripcion().trim().length() > 500)
+            if(roles.getNomRol().trim().length() < 10 || roles.getNomRol().trim().length() > 25 || roles.getDescripcion().trim().length() < 10 || roles.getDescripcion().trim().length() > 500)
             {
-                if(roles.getNombre().trim().length() < 10)
+                if(roles.getNomRol().trim().length() < 10)
                 {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener al menos 10 caracteres"));
                 }
-                if(roles.getNombre().trim().length() > 25)
+                if(roles.getNomRol().trim().length() > 25)
                 {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener un maximo de 25 caracteres"));
                 }
@@ -180,7 +180,7 @@ public class MbRol  implements Serializable{
             {
                 RolesDao rolesDao=new RolesDao();  
                
-                if(rolesDao.validar_rol(roles.getNombre())==true)
+                if(rolesDao.validar_rol(roles.getNomRol())==true)
                 {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El rol ya existe")); 
                     return false;
@@ -194,11 +194,11 @@ public class MbRol  implements Serializable{
     return false;
     }
     
-    public boolean validarCamposModificar() throws Exception
+        public boolean validarCamposModificar() throws Exception
     {   
-                if(selectedRol.getNombre().trim().length() == 0 || selectedRol.getDescripcion().trim().length() == 0)
+                if(selectedRol.getNomRol().trim().length() == 0 || selectedRol.getDescripcion().trim().length() == 0)
                 {
-                    if(selectedRol.getNombre().trim().length() == 0)//VALIDAR QUE SE DIGITE EL NOMBRE DEL ROL
+                    if(selectedRol.getNomRol().trim().length() == 0)//VALIDAR QUE SE DIGITE EL NOMBRE DEL ROL
                     {
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar el nombre"));
                     }
@@ -209,13 +209,13 @@ public class MbRol  implements Serializable{
                 }
                 else
                 {
-                    if(selectedRol.getNombre().trim().length() < 10 || selectedRol.getNombre().trim().length() > 25 || selectedRol.getDescripcion().trim().length() < 10 || selectedRol.getDescripcion().trim().length() > 500)
+                    if(selectedRol.getNomRol().trim().length() < 10 || selectedRol.getNomRol().trim().length() > 25 || selectedRol.getDescripcion().trim().length() < 10 || selectedRol.getDescripcion().trim().length() > 500)
                     {
-                        if(selectedRol.getNombre().trim().length() < 10)
+                        if(selectedRol.getNomRol().trim().length() < 10)
                         {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener al menos 10 caracteres"));
                         }
-                        if(selectedRol.getNombre().trim().length() > 25)
+                        if(selectedRol.getNomRol().trim().length() > 25)
                         {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener un maximo de 25 caracteres"));
                         }
@@ -231,11 +231,7 @@ public class MbRol  implements Serializable{
                     else
                     {
                         RolesDao rolesDao=new RolesDao();
-
-                        if(rolesDao.validar_rol_modificar(selectedRol.getNombre().trim().toLowerCase(),selectedRol.getId()) == true)
-
-                        if(rolesDao.validar_rol_modificar(selectedRol.getNombre().trim(),selectedRol.getId()) == true)
-
+                        if(rolesDao.validar_rol_modificar(selectedRol.getNomRol().trim().toLowerCase(),selectedRol.getIdRol()) == true)
                         {
                             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El rol ya existe")); 
                             return false;

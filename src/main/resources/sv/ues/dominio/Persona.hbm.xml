@@ -1,33 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 06-15-2019 03:20:58 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 08-22-2019 08:34:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="sv.ues.dominio.Persona" table="persona" schema="public" optimistic-lock="version">
-        <id name="id" type="long">
-            <column name="id" precision="10" scale="0" />
+        <id name="idPersona" type="int">
+            <column name="id_persona" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="usuario" class="sv.ues.dominio.Usuario" fetch="select">
-            <column name="id_usuario" precision="10" scale="0" />
+        <many-to-one name="encuestado" class="sv.ues.dominio.Encuestado" fetch="select">
+            <column name="id_encuestado" />
         </many-to-one>
-        <property name="primerNombre" type="string">
-            <column name="primer_nombre" length="25" />
+        <many-to-one name="encuestador" class="sv.ues.dominio.Encuestador" fetch="select">
+            <column name="id_encuestador" />
+        </many-to-one>
+        <many-to-one name="usuario" class="sv.ues.dominio.Usuario" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="nomPersona" type="string">
+            <column name="nom_persona" length="200" not-null="true" />
         </property>
-        <property name="segundoNombre" type="string">
-            <column name="segundo_nombre" length="25" />
+        <property name="apellPersona" type="string">
+            <column name="apell_persona" length="200" />
         </property>
-        <property name="primerApellido" type="string">
-            <column name="primer_apellido" length="25" />
+        <property name="correoPersona" type="string">
+            <column name="correo_persona" length="200" />
         </property>
-        <property name="segundoApellido" type="string">
-            <column name="segundo_apellido" length="25" />
+        <property name="telefonoPersona" type="string">
+            <column name="telefono_persona" length="50" />
         </property>
-        <property name="telefono" type="string">
-            <column name="telefono" length="10" />
-        </property>
-        <property name="correo" type="string">
-            <column name="correo" length="50" />
+        <property name="edadPersona" type="java.lang.Integer">
+            <column name="edad_persona" />
         </property>
     </class>
 </hibernate-mapping>
