@@ -1,6 +1,9 @@
 package sv.ues.dominio;
 // Generated 08-22-2019 08:34:29 PM by Hibernate Tools 4.3.1
 
+import java.util.Date;
+
+
 
 
 /**
@@ -9,99 +12,219 @@ package sv.ues.dominio;
 public class Persona  implements java.io.Serializable {
 
 
-     private int idPersona;
-     private Encuestado encuestado;
-     private Encuestador encuestador;
-     private Usuario usuario;
-     private String nomPersona;
-     private String apellPersona;
-     private String correoPersona;
-     private String telefonoPersona;
-     private Integer edadPersona;
+    private int idPersona;
+    private Encuestado encuestado;
+    private Encuestador encuestador;
+    private Usuario usuario;
+    //private String nomPersona;
+    //private String apellPersona;
+    private String correoPersona;
+    private String telefonoPersona;
+    //private Integer edadPersona;
+     
+    //INICIO NUEVOS ATRIBUTOS
+    private String primerNombre;
+    private String segundoNombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private Date fechaNacimiento;
+    //private String departamento;
+    //private String municipio;
+    private String dui;
+    private String nit;
+    private String direccionResidencia;
+    private Municipio municipio;
+    //FIN NUEVOS ATRIBUTOS
 
-    public Persona() {
+    public Persona() 
+    {
     }
 
 	
-    public Persona(int idPersona, String nomPersona) {
+    public Persona(int idPersona/*, String nomPersona*/) 
+    {
         this.idPersona = idPersona;
-        this.nomPersona = nomPersona;
+        //this.nomPersona = nomPersona;
     }
-    public Persona(int idPersona, Encuestado encuestado, Encuestador encuestador, Usuario usuario, String nomPersona, String apellPersona, String correoPersona, String telefonoPersona, Integer edadPersona) {
+    public Persona(int idPersona, Encuestado encuestado, Encuestador encuestador, Usuario usuario/*, String nomPersona, String apellPersona*/, String correoPersona, String telefonoPersona, /*Integer edadPersona,*/ String dui) 
+    {
        this.idPersona = idPersona;
        this.encuestado = encuestado;
        this.encuestador = encuestador;
        this.usuario = usuario;
-       this.nomPersona = nomPersona;
-       this.apellPersona = apellPersona;
+       //this.nomPersona = nomPersona;
+       //this.apellPersona = apellPersona;
        this.correoPersona = correoPersona;
        this.telefonoPersona = telefonoPersona;
-       this.edadPersona = edadPersona;
+       //this.edadPersona = edadPersona;
+       this.dui = dui;
     }
-   
-    public int getIdPersona() {
+    
+    
+//INICIO CODIGO ADICIONADO
+    public String getPrimerNombre() {
+        return primerNombre;
+    }
+
+    public void setPrimerNombre(String primerNombre) {
+        this.primerNombre = primerNombre;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+
+    public void setSegundoNombre(String segundoNombre) {
+        this.segundoNombre = segundoNombre;
+    }
+
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
+
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    /*public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }*/
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getDireccionResidencia() {
+        return direccionResidencia;
+    }
+
+    public void setDireccionResidencia(String direccionResidencia) {
+        this.direccionResidencia = direccionResidencia;
+    }
+
+//FIN CODIGO ADICIONADO
+
+
+    public int getIdPersona()
+    {
         return this.idPersona;
     }
     
     public void setIdPersona(int idPersona) {
         this.idPersona = idPersona;
     }
-    public Encuestado getEncuestado() {
+    public Encuestado getEncuestado()
+    {
         return this.encuestado;
     }
     
-    public void setEncuestado(Encuestado encuestado) {
+    public void setEncuestado(Encuestado encuestado)
+    {
         this.encuestado = encuestado;
     }
-    public Encuestador getEncuestador() {
+    public Encuestador getEncuestador()
+    {
         return this.encuestador;
     }
     
-    public void setEncuestador(Encuestador encuestador) {
+    public void setEncuestador(Encuestador encuestador)
+    {
         this.encuestador = encuestador;
     }
-    public Usuario getUsuario() {
+    public Usuario getUsuario()
+    {
         return this.usuario;
     }
     
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario)
+    {
         this.usuario = usuario;
     }
-    public String getNomPersona() {
+    /*public String getNomPersona()
+    {
         return this.nomPersona;
     }
     
-    public void setNomPersona(String nomPersona) {
+    public void setNomPersona(String nomPersona)
+    {
         this.nomPersona = nomPersona;
     }
-    public String getApellPersona() {
+    public String getApellPersona()
+    {
         return this.apellPersona;
     }
     
-    public void setApellPersona(String apellPersona) {
+    public void setApellPersona(String apellPersona)
+    {
         this.apellPersona = apellPersona;
-    }
-    public String getCorreoPersona() {
+    }*/
+    public String getCorreoPersona()
+    {
         return this.correoPersona;
     }
     
-    public void setCorreoPersona(String correoPersona) {
+    public void setCorreoPersona(String correoPersona)
+    {
         this.correoPersona = correoPersona;
     }
-    public String getTelefonoPersona() {
+    public String getTelefonoPersona()
+    {
         return this.telefonoPersona;
     }
     
-    public void setTelefonoPersona(String telefonoPersona) {
+    public void setTelefonoPersona(String telefonoPersona)
+    {
         this.telefonoPersona = telefonoPersona;
     }
-    public Integer getEdadPersona() {
+    /*public Integer getEdadPersona()
+    {
         return this.edadPersona;
     }
     
-    public void setEdadPersona(Integer edadPersona) {
+    public void setEdadPersona(Integer edadPersona) 
+    {
         this.edadPersona = edadPersona;
-    }
+    }*/
 
 
 

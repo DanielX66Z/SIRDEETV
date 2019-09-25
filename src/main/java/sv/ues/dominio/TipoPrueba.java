@@ -14,6 +14,7 @@ public class TipoPrueba  implements java.io.Serializable {
      private int idTipoPrueba;
      private String nomPrueba;
      private Boolean estadoDisp;
+     private String descripcion;
      private Set analisisLabs = new HashSet(0);
 
     public TipoPrueba() {
@@ -59,6 +60,14 @@ public class TipoPrueba  implements java.io.Serializable {
     public void setAnalisisLabs(Set analisisLabs) {
         this.analisisLabs = analisisLabs;
     }
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
 
 
 

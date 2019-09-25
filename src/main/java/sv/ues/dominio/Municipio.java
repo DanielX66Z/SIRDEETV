@@ -12,24 +12,28 @@ public class Municipio  implements java.io.Serializable {
 
 
      private String codMunicipio;
+     //private String depto;
      private Departamento departamento;
      private String nomMunicipio;
      private Set coloniaCantons = new HashSet(0);
 
-    public Municipio() {
+    public Municipio() 
+    {
     }
 
 	
-    public Municipio(String codMunicipio, Departamento departamento, String nomMunicipio) {
+    public Municipio(String codMunicipio, Departamento departamento, String nomMunicipio/*, String depto*/) {
         this.codMunicipio = codMunicipio;
         this.departamento = departamento;
         this.nomMunicipio = nomMunicipio;
+        //this.depto = depto;
     }
-    public Municipio(String codMunicipio, Departamento departamento, String nomMunicipio, Set coloniaCantons) {
+    public Municipio(String codMunicipio, Departamento departamento, String nomMunicipio, /*String depto,*/ Set coloniaCantons) {
        this.codMunicipio = codMunicipio;
        this.departamento = departamento;
        this.nomMunicipio = nomMunicipio;
        this.coloniaCantons = coloniaCantons;
+       //this.depto = depto;
     }
    
     public String getCodMunicipio() {
@@ -39,6 +43,7 @@ public class Municipio  implements java.io.Serializable {
     public void setCodMunicipio(String codMunicipio) {
         this.codMunicipio = codMunicipio;
     }
+    
     public Departamento getDepartamento() {
         return this.departamento;
     }
@@ -60,6 +65,14 @@ public class Municipio  implements java.io.Serializable {
     public void setColoniaCantons(Set coloniaCantons) {
         this.coloniaCantons = coloniaCantons;
     }
+
+    /*public String getDepto() {
+        return depto;
+    }
+
+    public void setDepto(String depto) {
+        this.depto = depto;
+    }*/
 
 
 

@@ -6,7 +6,7 @@
     <class name="sv.ues.dominio.Persona" table="persona" schema="public" optimistic-lock="version">
         <id name="idPersona" type="int">
             <column name="id_persona" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="encuestado" class="sv.ues.dominio.Encuestado" fetch="select">
             <column name="id_encuestado" />
@@ -17,20 +17,58 @@
         <many-to-one name="usuario" class="sv.ues.dominio.Usuario" fetch="select">
             <column name="id_usuario" />
         </many-to-one>
-        <property name="nomPersona" type="string">
+        
+        <!--<property name="nomPersona" type="string">
+            <column name="nom_persona" length="200" />
             <column name="nom_persona" length="200" not-null="true" />
         </property>
         <property name="apellPersona" type="string">
             <column name="apell_persona" length="200" />
-        </property>
+        </property>-->
         <property name="correoPersona" type="string">
             <column name="correo_persona" length="200" />
         </property>
         <property name="telefonoPersona" type="string">
             <column name="telefono_persona" length="50" />
         </property>
-        <property name="edadPersona" type="java.lang.Integer">
+        <!--<property name="edadPersona" type="java.lang.Integer">
             <column name="edad_persona" />
+        </property>-->
+        
+<!-- INICIO CODIGO ADICIONADO -->
+        <many-to-one name="municipio" class="sv.ues.dominio.Municipio" fetch="select">
+            <column name="municipio" />
+        </many-to-one>
+        <property name="primerNombre" type="string">
+            <column name="primer_nombre" />
         </property>
+        <property name="segundoNombre" type="string">
+            <column name="segundo_nombre" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="primer_apellido" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="segundo_apellido" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fecha_nacimiento" length="13" not-null="false" />
+        </property>
+        <!--<property name="departamento" type="string">
+            <column name="departamento" />
+        </property>
+        <property name="municipio" type="string">
+            <column name="municipio" />
+        </property>-->
+        <property name="dui" type="string">
+            <column name="dui" />
+        </property>
+        <property name="nit" type="string">
+            <column name="nit" />
+        </property>
+        <property name="direccionResidencia" type="string">
+            <column name="direccion_residencia" />
+        </property>
+<!--   FIN CODIGO ADICIONADO  -->    
     </class>
 </hibernate-mapping>

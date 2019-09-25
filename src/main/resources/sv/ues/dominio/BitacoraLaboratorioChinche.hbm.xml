@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-04-2019 10:41:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sv.ues.dominio.BitacoraLaboratorioChinche" table="bitacora_laboratorio_chinche" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idPerfil" type="java.lang.Integer">
+            <column name="id_perfil" />
+        </property>
+        <property name="fechaIngreso" type="date">
+            <column name="fecha_ingreso" length="13" />
+        </property>
+        <property name="fechaTrabajo" type="date">
+            <column name="fecha_trabajo" length="13" />
+        </property>
+        <property name="departamento" type="string">
+            <column name="departamento" length="20" />
+        </property>
+        <property name="municipio" type="string">
+            <column name="municipio" length="20" />
+        </property>
+        <property name="canton" type="string">
+            <column name="canton" length="20" />
+        </property>
+        <property name="cacerio" type="string">
+            <column name="cacerio" length="200" />
+        </property>
+        <property name="fechaColecta" type="date">
+            <column name="fecha_colecta" length="13" />
+        </property>
+        <property name="nombreCientifico" type="string">
+            <column name="nombre_cientifico" length="200" />
+        </property>
+        <property name="numeroCasa" type="java.lang.Integer">
+            <column name="numero_casa" />
+        </property>
+        <property name="nombreJefeFamilia" type="string">
+            <column name="nombre_jefe_familia" length="200" />
+        </property>
+        <property name="domiciliar" type="java.lang.Boolean">
+            <column name="domiciliar" />
+        </property>
+        <property name="peridomiciliar" type="java.lang.Boolean">
+            <column name="peridomiciliar" />
+        </property>
+        <property name="silvestre" type="java.lang.Boolean">
+            <column name="silvestre" />
+        </property>
+    </class>
+</hibernate-mapping>

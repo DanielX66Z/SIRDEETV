@@ -32,14 +32,23 @@
         <property name="fechaMuestra" type="date">
             <column name="fecha_muestra" length="13" not-null="true" />
         </property>
-        <property name="numeroMuestra" type="string">
-            <column name="numero_muestra" length="50" not-null="true" />
+        <property name="numeroMuestra" type="int">
+            <column name="numero_muestra"   />
+        </property>
+        <property name="numeroIdentificados" type="int">
+            <column name="numero_identificados"   />
         </property>
         <property name="generoMuestra" type="string">
             <column name="genero_muestra" length="50" />
         </property>
         <property name="motivoMuestra" type="string">
             <column name="motivo_muestra" length="50" not-null="true" />
+        </property>
+        <property name="tipoCaso" type="int">
+            <column name="tipo_caso"   />
+        </property>
+        <property name="tipoTrampa" type="int">
+            <column name="tipo_trampa"   />
         </property>
         <set name="analisisLabs" table="analisis_lab" inverse="true" lazy="true" fetch="select">
             <key>

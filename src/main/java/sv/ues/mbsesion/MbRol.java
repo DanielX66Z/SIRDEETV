@@ -27,6 +27,7 @@ public class MbRol  implements Serializable{
     public MbRol()
     {
         roles=new Rol();
+        roles.setEstadoRol(true);
     }
     
     public void registrar() throws Exception
@@ -36,6 +37,7 @@ public class MbRol  implements Serializable{
             RolesDao rolesDao=new RolesDao(); 
             rolesDao.registrar(roles);
             roles=new Rol();
+            roles.setEstadoRol(true);
             PrimeFaces.current().ajax().update("rolCreacion");
             PrimeFaces.current().ajax().update("rolesResgistrados");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Informacion","Rol registrado con exito")); 
@@ -58,68 +60,6 @@ public class MbRol  implements Serializable{
             PrimeFaces.current().ajax().update("rolesResgistrados");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Informacion","Rol modificado exitosamente"));
         }
-
-        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar la descripcion"));
-        /*try
-        {
-            if(selectedRol!=null)
-            {
-                if(selectedRol.getNombre().trim().length() == 0 || selectedRol.getDescripcion().trim().length() == 0)
-                {
-                    if(selectedRol.getNombre().trim().length() == 0)//VALIDAR QUE SE DIGITE EL NOMBRE DEL ROL
-                    {
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar el nombre"));
-                    }
-                    if(selectedRol.getDescripcion().trim().length() == 0)//VALIDAR QUE SE DIGITE LA DESCRIPCION DEL ROL
-                    {
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","Debe digitar la descripcion"));
-                    }
-                }
-                else
-                {
-                    if(selectedRol.getNombre().trim().length() < 10 || selectedRol.getNombre().trim().length() > 25 || selectedRol.getDescripcion().trim().length() < 10 || selectedRol.getDescripcion().trim().length() > 500)
-                    {
-                        if(selectedRol.getNombre().trim().length() < 10)
-                        {
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener al menos 10 caracteres"));
-                        }
-                        if(selectedRol.getNombre().trim().length() > 25)
-                        {
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El nombre del rol debe tener un maximo de 25 caracteres"));
-                        }
-                        if(selectedRol.getDescripcion().trim().length() < 10)
-                        {
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","La descripcion del rol debe tener al menos 10 caracteres"));
-                        }
-                        if(selectedRol.getDescripcion().trim().length() > 500)
-                        {
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","La descripcion del rol debe tener un maximo de 500 caracteres"));
-                        }
-                    }
-                    else
-                    {
-                        RolesDao rolesDao=new RolesDao();
-                        if(rolesDao.validar_rol_modificar(selectedRol.getNombre().trim(),selectedRol.getId()) != true)
-                        {
-                            rolesDao.actualizar_rol(selectedRol);
-                            PrimeFaces current = PrimeFaces.current();
-                            current.executeScript("PF('dialogoModificar').hide();");
-                            PrimeFaces.current().ajax().update("rolesResgistrados");
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Informacion","Rol modificado exitosamente"));
-                        }
-                        else
-                        {
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Advertencia","El rol ya existe"));
-                        }
-                    }
-                }
-            }
-        }
-        catch(Exception e)
-        {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error","Al modificar datos")); 
-        }*/
-
     }
     
     public void setSelected(Rol roles)

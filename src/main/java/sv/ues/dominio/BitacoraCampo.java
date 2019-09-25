@@ -18,8 +18,8 @@ public class BitacoraCampo  implements java.io.Serializable {
      private Date fechaCampo;
      private Set bitacoraCampos = new HashSet(0);
      private Set encuestas = new HashSet(0);
-     private Set muestras = new HashSet(0);
-     private Set ubicacions = new HashSet(0);
+     private Set<Muestra> muestras ;
+     private Set<Ubicacion> ubicacion ;
 
     public BitacoraCampo() {
     }
@@ -30,7 +30,7 @@ public class BitacoraCampo  implements java.io.Serializable {
         this.invVector = invVector;
         this.fechaCampo = fechaCampo;
     }
-    public BitacoraCampo(int idBitCampo, BitacoraCampo bitacoraCampo, InvVector invVector, Date fechaCampo, Set bitacoraCampos, Set encuestas, Set muestras, Set ubicacions) {
+    public BitacoraCampo(int idBitCampo, BitacoraCampo bitacoraCampo, InvVector invVector, Date fechaCampo, Set bitacoraCampos, Set encuestas, Set<Muestra> muestras, Set<Ubicacion> ubicacions) {
        this.idBitCampo = idBitCampo;
        this.bitacoraCampo = bitacoraCampo;
        this.invVector = invVector;
@@ -38,7 +38,7 @@ public class BitacoraCampo  implements java.io.Serializable {
        this.bitacoraCampos = bitacoraCampos;
        this.encuestas = encuestas;
        this.muestras = muestras;
-       this.ubicacions = ubicacions;
+       this.ubicacion = ubicacion;
     }
    
     public int getIdBitCampo() {
@@ -83,19 +83,19 @@ public class BitacoraCampo  implements java.io.Serializable {
     public void setEncuestas(Set encuestas) {
         this.encuestas = encuestas;
     }
-    public Set getMuestras() {
+    public Set<Muestra> getMuestras() {
         return this.muestras;
     }
     
-    public void setMuestras(Set muestras) {
+    public void setMuestras(Set<Muestra> muestras) {
         this.muestras = muestras;
     }
-    public Set getUbicacions() {
-        return this.ubicacions;
+    public Set<Ubicacion> getUbicacions() {
+        return this.ubicacion;
     }
     
-    public void setUbicacions(Set ubicacions) {
-        this.ubicacions = ubicacions;
+    public void setUbicacions(Set<Ubicacion> ubicacions) {
+        this.ubicacion = ubicacions;
     }
 
 

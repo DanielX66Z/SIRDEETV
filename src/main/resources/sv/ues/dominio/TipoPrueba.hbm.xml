@@ -11,8 +11,12 @@
         <property name="nomPrueba" type="string">
             <column name="nom_prueba" length="200" not-null="true" />
         </property>
+        
         <property name="estadoDisp" type="java.lang.Boolean">
             <column name="estado_disp" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="100" not-null="true" />
         </property>
         <set name="analisisLabs" table="analisis_lab" inverse="true" lazy="true" fetch="select">
             <key>

@@ -25,7 +25,7 @@ import sv.ues.dominio.Rol;
 @RequestMapping(value="prueba" )
 public class SpringController {
     
-    private RolesDao rolesDao=new RolesDao();
+   // private RolesDao rolesDao=new RolesDao();
     
     @RequestMapping("/zx")
     @ResponseBody
@@ -33,10 +33,10 @@ public class SpringController {
         return "adsadas0";
     }
     
-    @GetMapping(value="/getTodos")
+   /* @GetMapping(value="/getTodos")
     public ResponseEntity<List<Rol>> getAllRoles() throws Exception{
         List<Rol> lsRoles=rolesDao.obtener_roles();
         return new ResponseEntity<List<Rol>>(lsRoles,HttpStatus.OK);
         
-    }
+    }*/
 }

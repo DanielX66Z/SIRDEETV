@@ -1,0 +1,182 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" 
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Gestion de perfil de investigacion</ui:define>
+
+    <ui:define name="content">
+        <div class="ui-g ui-fluid">
+
+            <div class="ui-g-12 ui-lg-12">
+
+                <h1>Perfil de investigacion</h1>
+                <h:form id="formPerfil" >
+                    <p:growl id="mensaje" showDetail="true" showSummary="true" sticky="false" life="3000" />    
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:selectOneMenu id="coddeInvestigacion" value="#{mbPerfilInvestigacion.investigacion}" required="true" requiredMessage="Seleccione departamento">
+                                <f:selectItem itemLabel="Seleccio1ne investigacion..." noSelectionOption="true" itemValue=""/>
+                                <f:selectItems value="#{mbPerfilInvestigacion.lsInvestigacion}" var="investigacion" itemValue="#{investigacion}"  />
+
+                            </p:selectOneMenu>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <h:outputLabel value="Antecedentes de la investigacion"/>
+                            <p:textEditor  placeholder="Escriba atecendentes"  value="#{mbPerfilInvestigacion.perfilInv.antecedente}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Justificacion de la investigacion"/>
+                            <p:textEditor  placeholder="Escriba justificacion de la investigacion"  value="#{mbPerfilInvestigacion.perfilInv.antecedente}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Planteamiento de la investigacion"/>
+                            <p:textEditor  placeholder="Escriba justificacion de la investigacion"  value="#{mbPerfilInvestigacion.perfilInv.planteamiento}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Objetivo general"/>
+
+                            <p:textEditor  placeholder="Escriba objetivo general"  value="#{mbPerfilInvestigacion.perfilInv.objGeneral}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Objetivo especificos"/>
+                            <p:textEditor  placeholder="Escriba objetivos especificos"  value="#{mbPerfilInvestigacion.perfilInv.objEspecifico}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Metodologia"/>
+                            <p:textEditor  placeholder="Escriba metodologia a realizar"  value="#{mbPerfilInvestigacion.perfilInv.metodologia}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>   
+
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup >
+                            <p:outputLabel value="Descripcion de resultados"/>
+                            <p:textEditor  placeholder="Escriba resultados esperados"  value="#{mbPerfilInvestigacion.perfilInv.descResul}">
+                                <f:facet name="toolbar">
+                                    <span class="ql-formats">
+                                        <button class="ql-bold"></button>
+                                        <button class="ql-italic"></button>
+                                        <button class="ql-underline"></button>
+                                        <button class="ql-strike"></button>
+                                    </span>
+                                    <span class="ql-formats">
+                                        <select class="ql-font"></select>
+                                        <select class="ql-size"></select>
+                                    </span>
+                                </f:facet>
+                            </p:textEditor>  
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputNumber value="#{mbPerfilInvestigacion.perfilInv.presupuesto}" />
+                            <label>Presupuesto</label>
+                        </h:panelGroup>
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText value="#{mbPerfilInvestigacion.perfilInv.numeroPersona}" />
+                            <label>Numero de personas</label>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton id="save" actionListener="#{mbPerfilInvestigacion.registrar()}" update="mensaje"/>
+
+                    <p:blockUI block="formPerfil" trigger="save">
+                        Procesando...
+                    </p:blockUI>
+                </h:form>
+            </div>    
+        </div>    
+    </ui:define>
+</ui:composition>

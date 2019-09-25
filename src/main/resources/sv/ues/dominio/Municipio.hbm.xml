@@ -8,9 +8,13 @@
             <column name="cod_municipio" length="50" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="departamento" class="sv.ues.dominio.Departamento" fetch="select">
-            <column name="cod_depto" length="50" not-null="true" />
+        
+        
+        <many-to-one name="departamento" class="sv.ues.dominio.Departamento" fetch="select" lazy="false">
+            <column name="cod_depto" length="50" not-null="false" />
         </many-to-one>
+        
+        
         <property name="nomMunicipio" type="string">
             <column name="nom_municipio" length="50" not-null="true" />
         </property>
@@ -20,5 +24,10 @@
             </key>
             <one-to-many class="sv.ues.dominio.ColoniaCanton" />
         </set>
+        
+        <!--<property name="departamento" type="string">
+            <column name="cod_depto" length="50" not-null="false" />
+        </property>-->
+        
     </class>
 </hibernate-mapping>

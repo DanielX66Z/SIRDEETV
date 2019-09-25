@@ -6,7 +6,7 @@
     <class name="sv.ues.dominio.Preservante" table="preservante" schema="public" optimistic-lock="version">
         <id name="idPreservante" type="int">
             <column name="id_preservante" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="nomPreservante" type="string">
             <column name="nom_preservante" length="100" not-null="true" />

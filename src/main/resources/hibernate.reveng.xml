@@ -83,4 +83,5 @@ Contributor(s):
   <table-filter match-name="investigador"/>
   <table-filter match-name="departamento"/>
   <table-filter match-name="respuesta"/>
+  <table-filter match-name="bitacora_laboratorio_chinche"/>
 </hibernate-reverse-engineering>

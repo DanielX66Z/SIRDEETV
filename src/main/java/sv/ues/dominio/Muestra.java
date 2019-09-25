@@ -21,16 +21,21 @@ public class Muestra  implements java.io.Serializable {
      private String telefonoMuestra;
      private Date fechaTrabajo;
      private Date fechaMuestra;
-     private String numeroMuestra;
+     private int numeroMuestra;
+     private int numeroIdentificados;
      private String generoMuestra;
      private String motivoMuestra;
      private Set analisisLabs = new HashSet(0);
-
+     private int tipoCaso;
+     private int tipoTrampa;
+     
     public Muestra() {
     }
 
 	
-    public Muestra(String codigoMuestra, BitacoraCampo bitacoraCampo, Lote lote, TipoMuestra tipoMuestra, String nomJefeFam, int edadMuestra, String telefonoMuestra, Date fechaTrabajo, Date fechaMuestra, String numeroMuestra, String motivoMuestra) {
+    public Muestra(String codigoMuestra, BitacoraCampo bitacoraCampo, Lote lote, TipoMuestra tipoMuestra, 
+            String nomJefeFam, int edadMuestra, String telefonoMuestra, Date fechaTrabajo, Date fechaMuestra, 
+            int numeroMuestra, int numeroIdentificados, String motivoMuestra,int tipoCaso,int tipoTrampa) {
         this.codigoMuestra = codigoMuestra;
         this.bitacoraCampo = bitacoraCampo;
         this.lote = lote;
@@ -41,9 +46,14 @@ public class Muestra  implements java.io.Serializable {
         this.fechaTrabajo = fechaTrabajo;
         this.fechaMuestra = fechaMuestra;
         this.numeroMuestra = numeroMuestra;
+        this.numeroIdentificados=numeroIdentificados;
         this.motivoMuestra = motivoMuestra;
+        this.tipoCaso=tipoCaso;
+        this.tipoTrampa=this.tipoTrampa;
     }
-    public Muestra(String codigoMuestra, BitacoraCampo bitacoraCampo, Lote lote, TipoMuestra tipoMuestra, String nomJefeFam, int edadMuestra, String telefonoMuestra, Date fechaTrabajo, Date fechaMuestra, String numeroMuestra, String generoMuestra, String motivoMuestra, Set analisisLabs) {
+    public Muestra(String codigoMuestra, BitacoraCampo bitacoraCampo, Lote lote, TipoMuestra tipoMuestra, String nomJefeFam, 
+            int edadMuestra, String telefonoMuestra, Date fechaTrabajo, Date fechaMuestra, int numeroMuestra, 
+            int numeroIdentificados, String generoMuestra, String motivoMuestra, Set analisisLabs,int tipoCaso,int tipoTrampa) {
        this.codigoMuestra = codigoMuestra;
        this.bitacoraCampo = bitacoraCampo;
        this.lote = lote;
@@ -54,9 +64,12 @@ public class Muestra  implements java.io.Serializable {
        this.fechaTrabajo = fechaTrabajo;
        this.fechaMuestra = fechaMuestra;
        this.numeroMuestra = numeroMuestra;
+       this.numeroIdentificados=numeroIdentificados;
        this.generoMuestra = generoMuestra;
        this.motivoMuestra = motivoMuestra;
        this.analisisLabs = analisisLabs;
+       this.tipoCaso=tipoCaso;
+        this.tipoTrampa=this.tipoTrampa;
     }
    
     public String getCodigoMuestra() {
@@ -122,11 +135,11 @@ public class Muestra  implements java.io.Serializable {
     public void setFechaMuestra(Date fechaMuestra) {
         this.fechaMuestra = fechaMuestra;
     }
-    public String getNumeroMuestra() {
+    public int getNumeroMuestra() {
         return this.numeroMuestra;
     }
     
-    public void setNumeroMuestra(String numeroMuestra) {
+    public void setNumeroMuestra(int numeroMuestra) {
         this.numeroMuestra = numeroMuestra;
     }
     public String getGeneroMuestra() {
@@ -150,6 +163,32 @@ public class Muestra  implements java.io.Serializable {
     public void setAnalisisLabs(Set analisisLabs) {
         this.analisisLabs = analisisLabs;
     }
+
+    public int getNumeroIdentificados() {
+        return numeroIdentificados;
+    }
+
+    public void setNumeroIdentificados(int numeroIdentificados) {
+        this.numeroIdentificados = numeroIdentificados;
+    }
+
+    public int getTipoCaso() {
+        return tipoCaso;
+    }
+
+    public void setTipoCaso(int tipoCaso) {
+        this.tipoCaso = tipoCaso;
+    }
+
+    public int getTipoTrampa() {
+        return tipoTrampa;
+    }
+
+    public void setTipoTrampa(int tipoTrampa) {
+        this.tipoTrampa = tipoTrampa;
+    }
+    
+    
 
 
 
