@@ -6,7 +6,7 @@
     <class name="sv.ues.dominio.PerfilInv" table="perfil_inv" schema="public" optimistic-lock="version">
         <id name="idPerfil" type="int">
             <column name="id_perfil" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="investigacion" class="sv.ues.dominio.Investigacion" fetch="select">
             <column name="cod_invest" />

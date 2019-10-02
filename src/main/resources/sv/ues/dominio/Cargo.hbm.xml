@@ -6,10 +6,19 @@
     <class name="sv.ues.dominio.Cargo" table="cargo" schema="public" optimistic-lock="version">
         <id name="idCargo" type="int">
             <column name="id_cargo" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="cargo" type="string">
             <column name="cargo" length="200" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="200" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fecha_creacion" length="29" />
+        </property>
+        <property name="fechaModifica" type="timestamp">
+            <column name="fecha_modifica" length="29" />
         </property>
         <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
             <key>

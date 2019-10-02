@@ -13,15 +13,7 @@
                 <h1>Perfil de investigacion</h1>
                 <h:form id="formPerfil" >
                     <p:growl id="mensaje" showDetail="true" showSummary="true" sticky="false" life="3000" />    
-                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:selectOneMenu id="coddeInvestigacion" value="#{mbPerfilInvestigacion.investigacion}" required="true" requiredMessage="Seleccione departamento">
-                                <f:selectItem itemLabel="Seleccio1ne investigacion..." noSelectionOption="true" itemValue=""/>
-                                <f:selectItems value="#{mbPerfilInvestigacion.lsInvestigacion}" var="investigacion" itemValue="#{investigacion}"  />
-
-                            </p:selectOneMenu>
-                        </h:panelGroup>
-                    </p:panelGrid>
+                 
                     <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <h:panelGroup >
                             <h:outputLabel value="Antecedentes de la investigacion"/>
@@ -32,11 +24,13 @@
                                         <button class="ql-italic"></button>
                                         <button class="ql-underline"></button>
                                         <button class="ql-strike"></button>
+                                        
                                     </span>
                                     <span class="ql-formats">
                                         <select class="ql-font"></select>
                                         <select class="ql-size"></select>
                                     </span>
+                                    
                                 </f:facet>
                             </p:textEditor>   
 
@@ -166,11 +160,11 @@
                             <label>Presupuesto</label>
                         </h:panelGroup>
                         <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText value="#{mbPerfilInvestigacion.perfilInv.numeroPersona}" />
+                            <p:inputNumber value="#{mbPerfilInvestigacion.perfilInv.numeroPersona}" />
                             <label>Numero de personas</label>
                         </h:panelGroup>
                     </p:panelGrid>
-                    <p:commandButton id="save" actionListener="#{mbPerfilInvestigacion.registrar()}" update="mensaje"/>
+                    <p:commandButton id="save" class="secondary-btn" value="Guadar" actionListener="#{mbPerfilInvestigacion.registrar()}" update="mensaje"/>
 
                     <p:blockUI block="formPerfil" trigger="save">
                         Procesando...

@@ -55,5 +55,12 @@ public class InvestigacionDao {
         return investigacion;
     }
     
+    public void getInvestigaciones(int key){
+        iniciaOperacion();
+        CriteriaBuilder builder = sesion.getCriteriaBuilder();
+       
+        sesion.find(Investigacion.class,key);
+    }
+    
     
 }

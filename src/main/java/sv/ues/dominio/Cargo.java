@@ -2,6 +2,7 @@ package sv.ues.dominio;
 // Generated 08-22-2019 08:34:29 PM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,45 @@ public class Cargo  implements java.io.Serializable {
      private int idCargo;
      private String cargo;
      private Set usuarios = new HashSet(0);
+     private String descripcion;
+     private Date fechaCreacion;
+     private Date fechaModifica;
+     private Boolean activo;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaModifica() {
+        return fechaModifica;
+    }
+
+    public void setFechaModifica(Date fechaModifica) {
+        this.fechaModifica = fechaModifica;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+     
+     
+     
 
     public Cargo() {
     }
@@ -22,10 +62,14 @@ public class Cargo  implements java.io.Serializable {
     public Cargo(int idCargo) {
         this.idCargo = idCargo;
     }
-    public Cargo(int idCargo, String cargo, Set usuarios) {
+    public Cargo(int idCargo, String cargo, Set usuarios,String descripcion,Date fechaCreacion,Date fechaModifica,Boolean activo) {
        this.idCargo = idCargo;
        this.cargo = cargo;
        this.usuarios = usuarios;
+       this.descripcion=descripcion;
+       this.fechaCreacion=fechaCreacion;
+       this.fechaModifica=fechaModifica;
+       this.activo=activo;
     }
    
     public int getIdCargo() {

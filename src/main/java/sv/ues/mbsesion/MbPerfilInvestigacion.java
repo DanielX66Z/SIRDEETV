@@ -28,7 +28,7 @@ import sv.ues.dominio.PerfilInv;
 @ViewScoped
 public class MbPerfilInvestigacion implements Serializable{
     
-    private PerfilInv perfilInv=new PerfilInv();
+    private PerfilInv perfilInv;
     private List<SelectItem> lsInvestigacion;
     private Investigacion investigacion;
     
@@ -38,6 +38,10 @@ public class MbPerfilInvestigacion implements Serializable{
 
     public void setPerfilInv(PerfilInv perfilInv) {
         this.perfilInv = perfilInv;
+    }
+    
+    public MbPerfilInvestigacion(){
+        perfilInv=new PerfilInv();
     }
     
     public List<SelectItem> getLsInvestigacion() throws Exception{
