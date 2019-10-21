@@ -11,20 +11,21 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import sv.ues.dominio.BitacoraLab;
-import sv.ues.mbsesion.BaseMb;
 
 /**
  *
  * @author Carlos A
  */
-public class BitacoraLaboratorioDao extends BaseMb {
+public class BitacoraLaboratorioDao extends BaseDao {
 
     /**
      * Creates a new instance of BitacoraLaboratorio
      */
     public BitacoraLaboratorioDao() {
     }
-
+    /**
+     * Este método contiene un listado de la bitacora de laboratorio registrada
+     */
     public List<BitacoraLab> obtenerListado() {
         List<BitacoraLab> bitLabo = null;
         Root<BitacoraLab> from;
@@ -51,4 +52,10 @@ public class BitacoraLaboratorioDao extends BaseMb {
         return bitLabo;
     }
 
+    public void registrar(){
+        
+    }
+    
+    public void eliminar(){
+    }
 }

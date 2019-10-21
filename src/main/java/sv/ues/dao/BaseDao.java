@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package sv.ues.mbsesion;
+package sv.ues.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,7 +16,7 @@ import sv.ues.utils.HibernateUtil;
  * 
  * @author Carlos A
  */
-public class BaseMb {
+public class BaseDao {
     
     protected static HibernateUtil hibernateUtil = new HibernateUtil();
     protected static SessionFactory sessionFactory = hibernateUtil.getSessionFactory();

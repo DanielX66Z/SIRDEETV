@@ -23,14 +23,8 @@ import sv.ues.dominio.Vector;
  */
 @ManagedBean
 @ViewScoped
-public class MbBitLab  implements Serializable{
+public class MbBitLab implements Serializable{
 
-    
-    //private List<BitacoraLab> lista = new ArrayList();
-    //private BitacoraLaboratorioDao labDao;
-    //private List<BitacoraLab> lista = new ArrayList();
-    //private VectorDao vector;
-    
     /**
      * Creates a new instance of MbBitLab
      */

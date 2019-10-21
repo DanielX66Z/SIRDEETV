@@ -12,7 +12,6 @@ import javax.persistence.criteria.Root;
 import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.HibernateException;
 import sv.ues.dominio.Vector;
-import sv.ues.mbsesion.BaseMb;
 
 /**
  *
@@ -20,7 +19,7 @@ import sv.ues.mbsesion.BaseMb;
  */
 @ManagedBean
 @RequestScoped
-public class VectorDao extends BaseMb {
+public class VectorDao extends BaseDao {
 
     /**
      * Creates a new instance of VectorDao
