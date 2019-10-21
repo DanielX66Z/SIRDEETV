@@ -1,4 +1,4 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+﻿<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core" 
                 xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
@@ -7,11 +7,11 @@
     <ui:define name="content">
         <h:form id="FormLisBitLab">
             <p:growl id="mensaje" showDetail="true" showSummary="true" sticky="false" life="3000" />
-            <p:panel header="Bitacoras de laboratorio"/>
+            <p:panel header="Bitácoras de laboratorio"/>
 
 
-            <p:tabView >
-                <p:tab title="Vector 1 ">
+            <p:tabView var="vect" value="${mbBitLab.lista_vector()}">
+                <p:tab title="Vector ${vect.nomVector}">
                     <p:growl/>
 
                     <p:dataTable var="registro" value="${mbBitLab.lista_lab_bit()}">

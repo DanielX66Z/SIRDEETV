@@ -12,9 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import sv.ues.dao.BitacoraLaboratorioDao;
 import sv.ues.dao.VectorDao;
-import sv.ues.dominio.BitacoraLab;
 import sv.ues.dominio.Vector;
 
 /**
@@ -23,39 +21,29 @@ import sv.ues.dominio.Vector;
  */
 @ManagedBean
 @ViewScoped
-public class MbBitLab implements Serializable{
+public class MbVector implements Serializable{
 
     /**
-     * Creates a new instance of MbBitLab
+     * Creates a new instance of MbVector
      */
-    public MbBitLab() {
+    public MbVector() {
     }
     
-    public List<BitacoraLab> lista_lab_bit()
+    public List<Vector> lista_vector()
     {
-        List<BitacoraLab> lista = new ArrayList();
-        BitacoraLaboratorioDao labDao = new BitacoraLaboratorioDao();
+        List<Vector> listaVector = new ArrayList();
+        VectorDao vector = new VectorDao();
         try
         {
-            lista = labDao.obtenerListado();
+            listaVector = vector.obtenerListado();
             //System.out.println("\nLista.actividad: "+lista.get(0).getActividad());
         }
         catch(Exception e)
         {
             System.out.println("\nBitacora excepcion... "+e);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,e.toString(),e.toString()));
-            lista = null;
+            listaVector = null;
         }
-        return lista;
+        return listaVector;
     }
-    
-    /**
-     * Método dependiente que obtiene el listado de vectores actuales
-     * @return Devuelve una lista de vectores existentes
-     */
-    public List<Vector> lista_vector()
-    {
-        return new MbVector().lista_vector();
-    }
-
 }
