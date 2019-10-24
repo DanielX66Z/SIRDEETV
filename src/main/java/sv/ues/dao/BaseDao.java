@@ -10,6 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 import sv.ues.utils.HibernateUtil;
 
 /**
@@ -20,23 +21,33 @@ public class BaseDao {
     
     protected static HibernateUtil hibernateUtil = new HibernateUtil();
     protected static SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
-    protected Session sesion;
-    protected Transaction tx;
+    protected static Session sesion;
+    protected static  Transaction tx;
+
+    public BaseDao() {
+        sesion = null;
+        tx = null;
+    }
+    
+    
     
     /**
      * Inicia la session para obtener la conexion
      * @throws HibernateException Captura un error en caso de ocurrir
      */
-    protected void iniciar() throws HibernateException {
-        sesion = null;
-        tx = null;
+    protected static void iniciar() throws HibernateException {
+        
         try {
-            if (sessionFactory.getCurrentSession()== null) {
+            if (sesion == null) {
                 sesion = sessionFactory.openSession();
             }else{
                 sesion = sessionFactory.getCurrentSession();
             }
-            tx = sesion.beginTransaction();
+            
+            if ( tx == null || tx.getStatus() != TransactionStatus.ACTIVE ) {
+                tx = sesion.beginTransaction();
+            }            
+            
         } catch (Throwable t) {
             System.err.println("Error al obtener sesion. ");
             t.printStackTrace();
@@ -46,7 +57,7 @@ public class BaseDao {
     /**
      * Cierra sesion y hace commit a los cambios
      */
-    protected void completado(){
+    protected static void completado(){
         sesion.getTransaction().commit();
         cerrar();
     }
@@ -54,7 +65,7 @@ public class BaseDao {
     /**
      * Solamente cierra la session
      */
-    protected void cerrar(){
+    protected static void cerrar(){
         sesion.close();
     }
     
