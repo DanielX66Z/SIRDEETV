@@ -31,7 +31,7 @@ public class MbVector implements Serializable{
     
     public List<Vector> lista_vector()
     {
-        List<Vector> listaVector = new ArrayList();
+        List<Vector> listaVector = null;
         VectorDao vector = new VectorDao();
         try
         {
@@ -42,7 +42,6 @@ public class MbVector implements Serializable{
         {
             System.out.println("\nBitacora excepcion... "+e);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,e.toString(),e.toString()));
-            listaVector = null;
         }
         return listaVector;
     }

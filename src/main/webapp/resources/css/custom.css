@@ -1,0 +1,13 @@
+/*
+Acá agregar los elementos css que no se encuentren en el tema
+*/
+/* 
+    Created on : 10-21-2019, 01:22:14 AM
+    Author     : Carlos A
+*/
+.text-capitalize{
+    text-transform: capitalize;
+}
+.text-center{
+    text-align: center;
+}
