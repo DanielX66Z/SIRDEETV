@@ -27,7 +27,6 @@ public class VectorDao extends BaseDao {
     public VectorDao() {
     }
     
-    
     public List<Vector> obtenerListado() {
         List<Vector> vect = null;
         Root<Vector> from;
@@ -46,9 +45,7 @@ public class VectorDao extends BaseDao {
         } catch (HibernateException e) {
             System.out.println("Error en BitacoraLaboratorioDao: " + e);
             //throw e;
-        } finally {
-            cerrar();//Cerramos sesión
-        }
+        } 
         
         return vect;
     }

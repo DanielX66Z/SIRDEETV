@@ -14,10 +14,10 @@
                 <p:tab title="Vector ${vect.nomVector}" class="text-capitalize">
                     <p:growl/>
 
-                    <p:dataTable var="registro" value="${mbBitLab.lista_lab_bit()}" paginator="true" reflow="true" rows="5" >
-                        <p:column class="text-center">
+                    <p:dataTable var="registro" value="${mbBitLab.lista_lab_bit()}">
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="Código"/>
+                                <h:outputText value="Código" />
                             </f:facet>
                             <h:outputText value="${registro.codBitLab}" />
                         </p:column>
@@ -33,18 +33,15 @@
                             </f:facet>
                             <h:outputText value="${registro.actividad.nomActividad}" />
                         </p:column>
-                        <p:column width="10%" class="text-center">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Ver" />
+                            </f:facet>
                             <p:commandButton value="Ver" ajax="false" >
                             </p:commandButton>
                         </p:column>
-                        <p:column width="10%" class="text-center">
-                            <p:commandButton value="Modificar" ajax="false" >
-                            </p:commandButton>
-                        </p:column>
-                        <p:column width="10%" class="text-center">
-                            <p:commandButton value="Eliminar" ajax="true" >
-                            </p:commandButton>
-                        </p:column>
+
+
 
                     </p:dataTable>
                 </p:tab>
