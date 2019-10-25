@@ -5,11 +5,11 @@
  */
 package sv.ues.dao;
 
-import java.util.Iterator;
 import java.util.List;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import sv.ues.dominio.BitacoraLab;
 
 /**
@@ -17,41 +17,104 @@ import sv.ues.dominio.BitacoraLab;
  * @author Carlos A
  */
 public class BitacoraLaboratorioDao extends BaseDao {
-
+    
     /**
      * Creates a new instance of BitacoraLaboratorio
      */
     public BitacoraLaboratorioDao() {
     }
     /**
-     * Este m�todo contiene un listado de la bitacora de laboratorio registrada
+     * Este método contiene un listado de la bitacora de laboratorio registrada
+     * @return retorna un listado con los resultados
      */
     public List<BitacoraLab> obtenerListado() {
         List<BitacoraLab> bitLabo = null;
-        Root<BitacoraLab> from;
-        CriteriaQuery<Object> select;
-        CriteriaQuery criteria;
+        Criteria cr;
+        
         try {
-            this.iniciar();
-            criteria = sesion.getCriteriaBuilder().createQuery(BitacoraLab.class);
-            from = criteria.from(BitacoraLab.class);
-            //Obtenemos los valores
-            select = criteria.select(from);
-            
-            //Devolviendo resultados
-            bitLabo = sesion.createQuery(criteria).getResultList();
-            bitLabo.size();
+            iniciar();
+            cr = sesion.createCriteria(BitacoraLab.class, "bit");
+            cr.createAlias("bit.actividad", "act"); // inner join by default
+            //Obteniendo listado con los datos 
+            bitLabo = cr.list();
+            this.completado();
         } catch (HibernateException e) {
-            System.out.println("Error en BitacoraLaboratorioDao: " + e);
+            System.out.println("Error en BitacoraLaboratorioDao obtenerlistado: " + e);
             //throw e;
         } finally {
-            //Por conveniencia no cierro sesion
-            //cerrar();
+            this.cerrar();
         }
         
         return bitLabo;
     }
 
+    /**
+     * Listado de bitácora de laboratorio filtrado por el vector
+     * @param idVector Representa el código del vector
+     * @return Un listado con los resultados solicitados
+     */
+    public List<BitacoraLab> obtenerListado(int idVector) {
+        List<BitacoraLab> bitLabo = null;
+        Criteria cr;
+        
+        try {
+            iniciar();
+            
+            cr = sesion.createCriteria(BitacoraLab.class, "bit");
+            cr.createAlias("bit.actividad", "act"); // inner join by default
+            cr.createAlias("bit.invVector", "inv_vect"); // inner join by default
+            cr.createAlias("inv_vect.vector", "vect"); // inner join by default
+            cr.add(Restrictions.eq("vect.codVector", idVector))
+                    .addOrder(Order.asc("codBitLab"));
+            
+            //Obteniendo resultados
+            bitLabo = cr.list();
+            
+        } catch (HibernateException e) {
+            System.out.println("Error en BitacoraLaboratorioDao obtenerlistado(id): " + e);
+            System.out.println("\n"+e.getLocalizedMessage());
+            //throw e;
+        } finally {
+            completado();
+        }
+        
+        return bitLabo;
+    }
+    
+    /**
+     * Método que devuelve los registros de una sola bitácora
+     * @param idBitLab
+     * @return 
+     */
+    public BitacoraLab mostrar(int idBitLab) {
+        BitacoraLab bitLabo = null;
+        Criteria cr;
+        
+        try {
+            iniciar();
+            
+            cr = sesion.createCriteria(BitacoraLab.class, "bit");
+            cr.createAlias("bit.actividad", "act"); // inner join by default
+            cr.createAlias("bit.invVector", "inv_vect"); // inner join by default
+            cr.createAlias("inv_vect.vector", "vect"); // inner join by default
+            cr.add(Restrictions.eq("bit.codBitLab", idBitLab));
+            
+            //Obteniendo resultado único
+            bitLabo = (BitacoraLab) cr.uniqueResult();
+        } catch (HibernateException e) {
+            System.out.println("Error en BitacoraLaboratorioDao mostrar: " + e);
+            System.out.println("\n"+e.getLocalizedMessage());
+            //throw e;
+        } finally {
+            completado();
+        }
+        
+        return bitLabo;
+    }
+     
+    /**
+     * Metodo que registra los datos
+     */
     public void registrar(){
         
     }

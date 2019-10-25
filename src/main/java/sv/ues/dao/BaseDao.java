@@ -20,13 +20,14 @@ import sv.ues.utils.HibernateUtil;
 public class BaseDao {
     
     protected static HibernateUtil hibernateUtil = new HibernateUtil();
-    protected static SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+    protected static SessionFactory sessionFactory;
     protected static Session sesion;
     protected static  Transaction tx;
 
     public BaseDao() {
         sesion = null;
         tx = null;
+        sessionFactory = HibernateUtil.getSessionFactory();
     }
     
     
@@ -35,7 +36,7 @@ public class BaseDao {
      * Inicia la session para obtener la conexion
      * @throws HibernateException Captura un error en caso de ocurrir
      */
-    protected static void iniciar() throws HibernateException {
+    protected void iniciar() throws HibernateException {
         
         try {
             if (sesion == null) {
@@ -46,9 +47,9 @@ public class BaseDao {
             
             if ( tx == null || tx.getStatus() != TransactionStatus.ACTIVE ) {
                 tx = sesion.beginTransaction();
-            }            
-            
-        } catch (Throwable t) {
+            }
+            System.out.println("\nIniciando session\n");
+        } catch (HibernateException t) {
             System.err.println("Error al obtener sesion. ");
             t.printStackTrace();
         }
@@ -57,7 +58,7 @@ public class BaseDao {
     /**
      * Cierra sesion y hace commit a los cambios
      */
-    protected static void completado(){
+    protected void completado(){
         sesion.getTransaction().commit();
         cerrar();
     }
@@ -65,7 +66,7 @@ public class BaseDao {
     /**
      * Solamente cierra la session
      */
-    protected static void cerrar(){
+    protected void cerrar(){
         sesion.close();
     }
     

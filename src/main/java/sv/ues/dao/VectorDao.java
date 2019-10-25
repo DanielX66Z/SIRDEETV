@@ -45,7 +45,9 @@ public class VectorDao extends BaseDao {
         } catch (HibernateException e) {
             System.out.println("Error en BitacoraLaboratorioDao: " + e);
             //throw e;
-        } 
+        }  finally {
+            completado();
+        }
         
         return vect;
     }
