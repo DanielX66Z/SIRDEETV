@@ -10,71 +10,125 @@
             <p:panel header="Detalle de Bitácora de Laboratorio: #{mbBitLab.bitaLab.nomBitLab}"/>
 
             <div class="ui-g dashboard" >
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
+                <div class="ui-g-12 ui-md-4">
                     <div class="overview-box overview-box-4">
                         <div class="overview-box-header"></div>
                         <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons">perm_identity</i></div>
-                            <div class="overview-box-title">ID Perfil</div>
+                            <div class="overview-box-icon"><i class="material-icons">folder</i></div>
+                            <div class="overview-box-title">Código Perfil Investigación</div>
                             <div class="overview-box-count">#{mbBitLab.bitaLab.invVector.perfilInv.idPerfil}</div>
                         </div>
                     </div>
                 </div>
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
+
+                <div class="ui-g-12 ui-md-4">
                     <div class="overview-box overview-box-4">
                         <div class="overview-box-header"></div>
                         <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons">perm_identity</i></div>
+                            <div class="overview-box-icon"><i class="material-icons">fingerprint</i></div>
                             <div class="overview-box-title">Código bitácora</div>
                             <div class="overview-box-count">#{mbBitLab.bitaLab.codBitLab}</div>
                         </div>
                     </div>
                 </div>
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
+
+                <div class="ui-g-12 ui-md-4">
                     <div class="overview-box overview-box-4">
                         <div class="overview-box-header"></div>
                         <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons"></i></div>
-                            <div class="overview-box-title">Nombre bitácora</div>
+                            <div class="overview-box-icon"><i class="material-icons">bug_report</i></div>
+                            <div class="overview-box-title">Vector</div>
+                            <div class="overview-box-count text-capitalize">#{mbBitLab.bitaLab.invVector.vector.nomVector}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-4">
+                    <div class="overview-box overview-box-4">
+                        <div class="overview-box-header"></div>
+                        <div class="overview-box-content">
+                            <div class="overview-box-icon"><i class="material-icons">home</i></div>
+                            <div class="overview-box-title">Nombre bitácora Laboratorio</div>
                             <div class="overview-box-count">#{mbBitLab.bitaLab.nomBitLab}</div>
                         </div>
                     </div>
                 </div>
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
-                    <div class="overview-box overview-box-4">
-                        <div class="overview-box-header"></div>
-                        <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons"></i></div>
-                            <div class="overview-box-title">Vector</div>
-                            <div class="overview-box-count">#{mbBitLab.bitaLab.invVector.vector.nomVector}</div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
-                    <div class="overview-box overview-box-4">
-                        <div class="overview-box-header"></div>
-                        <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons"></i></div>
-                            <div class="overview-box-title">Título de investigación</div>
-                            <div class="overview-box-count">#{mbBitLab.bitaLab.invVector.tituloInv}</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ui-g-12 ui-md-4 ui-lg-3">
-                    <div class="overview-box overview-box-4">
-                        <div class="overview-box-header"></div>
-                        <div class="overview-box-content">
-                            <div class="overview-box-icon"><i class="material-icons"></i></div>
-                            <div class="overview-box-title">Título de investigación</div>
-                            <div class="overview-box-count">#{mbBitLab.bitaLab.invVector.tituloInv}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+                <div class="ui-g-12 ui-md-4 ">
+                    <div class="overview-box overview-box-4">
+                        <div class="overview-box-header"></div>
+                        <div class="overview-box-content">
+                            <div class="overview-box-icon"><i class="material-icons">info</i></div>
+                            <div class="overview-box-title">Título de investigación</div>
+                            <div class="overview-box-count text-capitalize">#{mbBitLab.bitaLab.invVector.tituloInv}</div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="ui-g-12 ui-md-4 ">
+                    <div class="overview-box overview-box-4">
+                        <div class="overview-box-header"></div>
+                        <div class="overview-box-content">
+                            <div class="overview-box-icon"><i class="material-icons">event_available</i></div>
+                            <div class="overview-box-title">Fecha de investigación</div>
+                            <div class="overview-box-count">dd/mm/aaaa</div>
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+            <div class="ui-g dashboard" >
+                <p:dataTable var="registro" value="mbBitLab.detalle" paginator="true" reflow="true" rows="5" >
+                    <p:column class="text-center">
+                        <f:facet name="header">
+                            <h:outputText value="Departamento"/>
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Municipio" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cantón" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cacerio" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre Científico" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo de muestra" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fecha colecta" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Edad de la muestra" />
+                        </f:facet>
+                        <h:outputText value="" />
+                    </p:column>
+
+                </p:dataTable>
+            </div>
 
             <p:blockUI block="FormLisBitLab"  widgetVar="bui">
                 Procesando...

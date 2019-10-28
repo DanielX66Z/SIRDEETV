@@ -16,6 +16,7 @@ import javax.faces.context.FacesContext;
 import sv.ues.dao.BitacoraLaboratorioDao;
 import sv.ues.dominio.BitacoraLab;
 import sv.ues.dominio.Vector;
+import sv.ues.dominio.VwShowBitLab;
 
 /**
  *
@@ -26,7 +27,9 @@ import sv.ues.dominio.Vector;
 public class MbBitLab implements Serializable{
     @ManagedProperty(value = "#{bitaLab}")
     private BitacoraLab bitaLab;
-
+    @ManagedProperty(value = "#{detalle}")
+    private List<VwShowBitLab> detalle;
+    
     /**
      * Creates a new instance of MbBitLab
      */
@@ -94,6 +97,8 @@ public class MbBitLab implements Serializable{
     public String show(int id){
         BitacoraLaboratorioDao labDao = new BitacoraLaboratorioDao();
         this.bitaLab = labDao.mostrar(id);
+        this.detalle = labDao.mostrarDetalle(id);
+        System.out.println("\n Variable detalle: "+this.detalle);
         return "showBitacoraLaboratorio";
     }
 
@@ -109,6 +114,20 @@ public class MbBitLab implements Serializable{
      */
     public void setBitaLab(BitacoraLab bitaLab) {
         this.bitaLab = bitaLab;
+    }
+
+    /**
+     * @return the detalle
+     */
+    public List<VwShowBitLab> getDetalle() {
+        return detalle;
+    }
+
+    /**
+     * @param detalle the detalle to set
+     */
+    public void setDetalle(List<VwShowBitLab> detalle) {
+        this.detalle = detalle;
     }
 
     

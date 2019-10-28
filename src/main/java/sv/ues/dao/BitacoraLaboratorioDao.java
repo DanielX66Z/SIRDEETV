@@ -11,6 +11,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import sv.ues.dominio.BitacoraLab;
+import sv.ues.dominio.VwShowBitLab;
 
 /**
  *
@@ -110,6 +111,31 @@ public class BitacoraLaboratorioDao extends BaseDao {
         }
         
         return bitLabo;
+    }
+    
+    /*Método que devuelve la información de una vista*/
+    public List<VwShowBitLab> mostrarDetalle(int idBitLab){
+        List<VwShowBitLab> vista = null;
+        Criteria cr;
+        
+        try {
+            iniciar();
+            
+            cr = sesion.createCriteria(VwShowBitLab.class, "vista");
+            cr.add(Restrictions.eq("vista.codBitLab", idBitLab));
+            
+            //Obteniendo resultado único
+            vista = cr.list();
+        } catch (HibernateException e) {
+            System.out.println("Error en BitacoraLaboratorioDao mostrar: " + e);
+            System.out.println("\n"+e.getLocalizedMessage());
+            //throw e;
+        } finally {
+            completado();
+        }
+        System.out.println("\n Tamaño de vista: "+vista.size());
+        return vista;
+    
     }
      
     /**
