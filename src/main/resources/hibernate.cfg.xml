@@ -88,5 +88,6 @@ Contributor(s):
         <mapping resource="sv/ues/dominio/PerfilInv.hbm.xml"/>
         <mapping resource="sv/ues/dominio/Encuesta.hbm.xml"/>
         <mapping resource="sv/ues/dominio/BitacoraLaboratorioChinche.hbm.xml"/>
+        <mapping class="sv.ues.dominio.VwShowBitLab"/>
     </session-factory>
 </hibernate-configuration>

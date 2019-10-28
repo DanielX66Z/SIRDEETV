@@ -10,8 +10,6 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,7 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.hibernate.annotations.Immutable;
 
 /**
  * 
@@ -27,26 +24,21 @@ import org.hibernate.annotations.Immutable;
  */
 @Entity
 @Table(name = "vw_show_bit_lab")
-@Immutable
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "VwShowBitLab.findAll", query = "SELECT v FROM VwShowBitLab v")
+    , @NamedQuery(name = "VwShowBitLab.findByCodBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.codBitLab = :codBitLab")
+    , @NamedQuery(name = "VwShowBitLab.findByIdInvVector", query = "SELECT v FROM VwShowBitLab v WHERE v.idInvVector = :idInvVector")
+    , @NamedQuery(name = "VwShowBitLab.findByCodActividad", query = "SELECT v FROM VwShowBitLab v WHERE v.codActividad = :codActividad")
+    , @NamedQuery(name = "VwShowBitLab.findByBitCodBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.bitCodBitLab = :bitCodBitLab")
+    , @NamedQuery(name = "VwShowBitLab.findByNomBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.nomBitLab = :nomBitLab")
     , @NamedQuery(name = "VwShowBitLab.findByCodDepto", query = "SELECT v FROM VwShowBitLab v WHERE v.codDepto = :codDepto")
     , @NamedQuery(name = "VwShowBitLab.findByCodMunicipio", query = "SELECT v FROM VwShowBitLab v WHERE v.codMunicipio = :codMunicipio")
     , @NamedQuery(name = "VwShowBitLab.findByIdColCan", query = "SELECT v FROM VwShowBitLab v WHERE v.idColCan = :idColCan")
     , @NamedQuery(name = "VwShowBitLab.findByIdCacerio", query = "SELECT v FROM VwShowBitLab v WHERE v.idCacerio = :idCacerio")
     , @NamedQuery(name = "VwShowBitLab.findByIdBitCampo", query = "SELECT v FROM VwShowBitLab v WHERE v.idBitCampo = :idBitCampo")
-    , @NamedQuery(name = "VwShowBitLab.findByIdInvVector", query = "SELECT v FROM VwShowBitLab v WHERE v.idInvVector = :idInvVector")
     , @NamedQuery(name = "VwShowBitLab.findByIdTipoMues", query = "SELECT v FROM VwShowBitLab v WHERE v.idTipoMues = :idTipoMues")
     , @NamedQuery(name = "VwShowBitLab.findByIdLote", query = "SELECT v FROM VwShowBitLab v WHERE v.idLote = :idLote")
-    , @NamedQuery(name = "VwShowBitLab.findByCodBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.codBitLab = :codBitLab")
-    , @NamedQuery(name = "VwShowBitLab.findByIdPerfil", query = "SELECT v FROM VwShowBitLab v WHERE v.idPerfil = :idPerfil")
-    , @NamedQuery(name = "VwShowBitLab.findByCodVector", query = "SELECT v FROM VwShowBitLab v WHERE v.codVector = :codVector")
-    , @NamedQuery(name = "VwShowBitLab.findByTituloInv", query = "SELECT v FROM VwShowBitLab v WHERE v.tituloInv = :tituloInv")
-    , @NamedQuery(name = "VwShowBitLab.findByDescInvVector", query = "SELECT v FROM VwShowBitLab v WHERE v.descInvVector = :descInvVector")
-    , @NamedQuery(name = "VwShowBitLab.findByCodActividad", query = "SELECT v FROM VwShowBitLab v WHERE v.codActividad = :codActividad")
-    , @NamedQuery(name = "VwShowBitLab.findByBitCodBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.bitCodBitLab = :bitCodBitLab")
-    , @NamedQuery(name = "VwShowBitLab.findByNomBitLab", query = "SELECT v FROM VwShowBitLab v WHERE v.nomBitLab = :nomBitLab")
     , @NamedQuery(name = "VwShowBitLab.findByLotIdLote", query = "SELECT v FROM VwShowBitLab v WHERE v.lotIdLote = :lotIdLote")
     , @NamedQuery(name = "VwShowBitLab.findByIdPreservante", query = "SELECT v FROM VwShowBitLab v WHERE v.idPreservante = :idPreservante")
     , @NamedQuery(name = "VwShowBitLab.findByFechaCreacion", query = "SELECT v FROM VwShowBitLab v WHERE v.fechaCreacion = :fechaCreacion")
@@ -80,11 +72,17 @@ import org.hibernate.annotations.Immutable;
 public class VwShowBitLab implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+    @Column(name = "cod_bit_lab")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "cod_bit_lab", updatable = false, nullable = false)
     private Integer codBitLab;
+    @Column(name = "id_inv_vector")
+    private Integer idInvVector;
+    @Column(name = "cod_actividad")
+    private Integer codActividad;
+    @Column(name = "bit_cod_bit_lab")
+    private Integer bitCodBitLab;
+    @Column(name = "nom_bit_lab")
+    private String nomBitLab;
     @Column(name = "cod_depto")
     private String codDepto;
     @Column(name = "cod_municipio")
@@ -95,26 +93,10 @@ public class VwShowBitLab implements Serializable {
     private Integer idCacerio;
     @Column(name = "id_bit_campo")
     private Integer idBitCampo;
-    @Column(name = "id_inv_vector")
-    private Integer idInvVector;
     @Column(name = "id_tipo_mues")
     private Integer idTipoMues;
     @Column(name = "id_lote")
     private Integer idLote;
-    @Column(name = "id_perfil")
-    private Integer idPerfil;
-    @Column(name = "cod_vector")
-    private Integer codVector;
-    @Column(name = "titulo_inv")
-    private String tituloInv;
-    @Column(name = "desc_inv_vector")
-    private String descInvVector;
-    @Column(name = "cod_actividad")
-    private Integer codActividad;
-    @Column(name = "bit_cod_bit_lab")
-    private Integer bitCodBitLab;
-    @Column(name = "nom_bit_lab")
-    private String nomBitLab;
     @Column(name = "lot_id_lote")
     private Integer lotIdLote;
     @Column(name = "id_preservante")
@@ -184,6 +166,46 @@ public class VwShowBitLab implements Serializable {
     public VwShowBitLab() {
     }
 
+    public Integer getCodBitLab() {
+        return codBitLab;
+    }
+
+    public void setCodBitLab(Integer codBitLab) {
+        this.codBitLab = codBitLab;
+    }
+
+    public Integer getIdInvVector() {
+        return idInvVector;
+    }
+
+    public void setIdInvVector(Integer idInvVector) {
+        this.idInvVector = idInvVector;
+    }
+
+    public Integer getCodActividad() {
+        return codActividad;
+    }
+
+    public void setCodActividad(Integer codActividad) {
+        this.codActividad = codActividad;
+    }
+
+    public Integer getBitCodBitLab() {
+        return bitCodBitLab;
+    }
+
+    public void setBitCodBitLab(Integer bitCodBitLab) {
+        this.bitCodBitLab = bitCodBitLab;
+    }
+
+    public String getNomBitLab() {
+        return nomBitLab;
+    }
+
+    public void setNomBitLab(String nomBitLab) {
+        this.nomBitLab = nomBitLab;
+    }
+
     public String getCodDepto() {
         return codDepto;
     }
@@ -224,14 +246,6 @@ public class VwShowBitLab implements Serializable {
         this.idBitCampo = idBitCampo;
     }
 
-    public Integer getIdInvVector() {
-        return idInvVector;
-    }
-
-    public void setIdInvVector(Integer idInvVector) {
-        this.idInvVector = idInvVector;
-    }
-
     public Integer getIdTipoMues() {
         return idTipoMues;
     }
@@ -246,70 +260,6 @@ public class VwShowBitLab implements Serializable {
 
     public void setIdLote(Integer idLote) {
         this.idLote = idLote;
-    }
-
-    public Integer getCodBitLab() {
-        return codBitLab;
-    }
-
-    public void setCodBitLab(Integer codBitLab) {
-        this.codBitLab = codBitLab;
-    }
-
-    public Integer getIdPerfil() {
-        return idPerfil;
-    }
-
-    public void setIdPerfil(Integer idPerfil) {
-        this.idPerfil = idPerfil;
-    }
-
-    public Integer getCodVector() {
-        return codVector;
-    }
-
-    public void setCodVector(Integer codVector) {
-        this.codVector = codVector;
-    }
-
-    public String getTituloInv() {
-        return tituloInv;
-    }
-
-    public void setTituloInv(String tituloInv) {
-        this.tituloInv = tituloInv;
-    }
-
-    public String getDescInvVector() {
-        return descInvVector;
-    }
-
-    public void setDescInvVector(String descInvVector) {
-        this.descInvVector = descInvVector;
-    }
-
-    public Integer getCodActividad() {
-        return codActividad;
-    }
-
-    public void setCodActividad(Integer codActividad) {
-        this.codActividad = codActividad;
-    }
-
-    public Integer getBitCodBitLab() {
-        return bitCodBitLab;
-    }
-
-    public void setBitCodBitLab(Integer bitCodBitLab) {
-        this.bitCodBitLab = bitCodBitLab;
-    }
-
-    public String getNomBitLab() {
-        return nomBitLab;
-    }
-
-    public void setNomBitLab(String nomBitLab) {
-        this.nomBitLab = nomBitLab;
     }
 
     public Integer getLotIdLote() {

@@ -6,10 +6,14 @@
 package sv.ues.dao;
 
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import sv.ues.dominio.BitacoraLab;
 import sv.ues.dominio.VwShowBitLab;
 
@@ -31,6 +35,7 @@ public class BitacoraLaboratorioDao extends BaseDao {
     public List<BitacoraLab> obtenerListado() {
         List<BitacoraLab> bitLabo = null;
         Criteria cr;
+        //CriteriaQuery query;
         
         try {
             iniciar();
